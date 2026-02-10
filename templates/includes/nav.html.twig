@@ -1,0 +1,9 @@
+<nav class="nav-principal">
+    <ul>
+        <li><a href="{{ path('home') }}" class="{{ app.request.attributes.get('_route') == 'home' ? 'active' : '' }}">Accueil</a></li>
+        <li><a href="{{ path('about') }}" class="{{ app.request.attributes.get('_route') == 'about' ? 'active' : '' }}">À propos</a></li>
+        <li><a href="{{ path('contact') }}" class="{{ app.request.attributes.get('_route') == 'contact' ? 'active' : '' }}">Contact</a></li>
+        <li><a href="{{ path('app_produit_index') }}" class="{{ app.request.attributes.get('_route') starts with 'app_produit' ? 'active' : '' }}">Boutique</a></li>
+        <li><a href="{{ path('app_produit_new') }}" class="{{ app.request.attributes.get('_route') == 'app_produit_new' ? 'active' : '' }}">Ajouter produit</a></li>
+    </ul>
+</nav>

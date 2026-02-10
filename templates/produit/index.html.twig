@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Produit{% endblock %}
+
+{% block content %}
+    <h1>Liste des Produit</h1>
+
+
+        {% for produit in produits %}
+            <div class="card-produit">
+                <img src="{{ produit.image }}" class="card-img-produit" alt="{{ produit.nom }}">
+                <h3 class="card-title-produit">{{ produit.nom }}</h3>
+                <p class="card-description-produit">{{ produit.description }}</p>
+                <p class="card-price-produit">{{ produit.prix }} €</p>
+                <div class="card-actions">
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}" class="btn-details">Voir détails</a>
+                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}" class="btn-edit">Modifier</a>
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-info">No records found</div>
+        {% endfor %}    
+
+    <a href="{{ path('app_produit_new') }}">Créer un nouveau produit</a>
+{% endblock %}
